@@ -9,18 +9,18 @@ app.use(express.json());
 
 const reservation = [
     {
-        name: "koan",
-        phone: 123456789,
-        email: "123@yahoo.com",
-        uniqueID: 0,
+        customerName: "koan",
+        phoneNumber: 123456789,
+        customerEmail: "123@yahoo.com",
+        customerID: 0,
     }
 ];
 const waitList = [
     {
-        name: "koan",
-        phone: 123456789,
-        email: "123@yahoo.com",
-        uniqueID: 0,
+        customerName: "koan",
+        phoneNumber: 123456789,
+        customerEmail: "123@yahoo.com",
+        customerID: 0,
     }
 ];
 
@@ -50,6 +50,8 @@ app.post("/api/tables", function (req, res) {
         reservation.push(req.body);
         console.log(req.body);
         console.log(reservation);
+    }else {
+        waitList.push(req.body);
     }
     // var newCharacter = req.body;
     // newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
