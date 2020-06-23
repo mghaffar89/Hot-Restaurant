@@ -7,10 +7,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.listen(PORT, function () {
-    console.log("App listening on PORT " + PORT);
-});
-
 const reservation = [
     {
         name: "koan",
@@ -41,23 +37,21 @@ app.get("/reservation", function (req, res) {
     res.sendFile(path.join(__dirname, "reservation.html"));
 });
 
-return res.json(false);
-  });
-
 app.post("/reservation", function (req, res) {
-    var newCharacter = req.body;
-    newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
-    console.log(newCharacter);
-    characters.push(newCharacter);
-    res.json(newCharacter);
+    // var newCharacter = req.body;
+    // newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
+    // console.log(newCharacter);
+    // characters.push(newCharacter);
+    // res.json(newCharacter);
 });
 
 app.post("/waitList", function (req, res) {
-    var newCharacter = req.body;
-    newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
-    console.log(newCharacter);
-    characters.push(newCharacter);
-    res.json(newCharacter);
+    console.log(req.body);
+    // var newCharacter = req.body;
+    // newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
+    // console.log(newCharacter);
+    // characters.push(newCharacter);
+    res.json("gotresponse");
 });
 
 // Starts the server to begin listening
@@ -65,3 +59,9 @@ app.post("/waitList", function (req, res) {
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
 });
+
+// for (var i = 0; i < 5; i++) {
+//     if (chosen === characters[i].routeName) {
+//       return res.json(characters[i]);
+//     }
+//   }
