@@ -37,7 +37,20 @@ app.get("/reservation", function (req, res) {
     res.sendFile(path.join(__dirname, "reservation.html"));
 });
 
-app.post("/reservation", function (req, res) {
+app.get("/api/waitlist",function (req, res) {
+    res.json(waitList);
+});
+
+app.get("/api/tables",function (req, res) {
+    res.json(reservation);
+});
+
+app.post("/api/tables", function (req, res) {
+    if (reservation.length < 5) {
+        reservation.push(req.body);
+        console.log(req.body);
+        console.log(reservation);
+    }
     // var newCharacter = req.body;
     // newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
     // console.log(newCharacter);
