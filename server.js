@@ -7,8 +7,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const server = http.createServer(handleRequest);
-
-server.listen(PORT, function () {
+app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
 });
